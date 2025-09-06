@@ -7,7 +7,7 @@ from tqdm import tqdm
 load_dotenv()
 
 from datasets import DatasetDict, load_dataset, concatenate_datasets, Dataset
-from data import (
+from crpo.data import (
     get_data_dict,
     sample_data,
     prepare_preference_data,
@@ -17,10 +17,10 @@ from data import (
     sample_pref_dataset_by_task,
 )
 
-from utils import none_or_int
+from crpo.utils import none_or_int
 
 
-def prepare_cpo_data(
+def prepare_crpo_data(
     input_dataset,
     max_num_responses=100,
     min_score_diff=10,
@@ -38,16 +38,16 @@ def prepare_cpo_data(
     max_length_balancing_size=None,
     ignored_tasks=None,
 ):
-    cpo_data = {}
+    crpo_data = {}
     splits = list(input_dataset.keys())
 
     for split in splits:
-        cpo_data[split] = input_dataset[split].to_pandas()
-        cpo_data[split] = get_data_dict(cpo_data[split], ignored_tasks=ignored_tasks)
+        crpo_data[split] = input_dataset[split].to_pandas()
+        crpo_data[split] = get_data_dict(crpo_data[split], ignored_tasks=ignored_tasks)
         if max_num_responses:
-            cpo_data[split] = sample_data(cpo_data[split], max_num_responses)
-        cpo_data[split] = prepare_preference_data(
-            cpo_data[split],
+            crpo_data[split] = sample_data(crpo_data[split], max_num_responses)
+        crpo_data[split] = prepare_preference_data(
+            crpo_data[split],
             min_margin=min_score_diff,
             max_margin=max_score_diff,
             max_matching=max_matching,
@@ -60,45 +60,45 @@ def prepare_cpo_data(
     if rm_split > 0:
         # prepare rm and po train data by splitting on the prompt
         rm_train_pref_data, po_train_pref_data = prepare_split_data_by_prompt(
-            cpo_dataset["train"], split=rm_split
+            crpo_dataset["train"], split=rm_split
         )
-        cpo_dataset["rm_train"] = rm_train_pref_data
-        cpo_dataset["po_train"] = po_train_pref_data
+        crpo_dataset["rm_train"] = rm_train_pref_data
+        crpo_dataset["po_train"] = po_train_pref_data
 
     # flatten the preference data
     for split in splits:
-        cpo_data[split] = flatten_data(cpo_data[split])
+        crpo_data[split] = flatten_data(crpo_data[split])
 
     # print the sizes of the preference data
     for split in splits:
-        print(f"{split} data: {len(cpo_data[split])} samples")
+        print(f"{split} data: {len(crpo_data[split])} samples")
 
     if dry_run:
         return
 
     # convert the preference data to trl preference dataset
     for split in splits:
-        cpo_data[split] = convert_to_trl_pref_dataset(
-            cpo_data[split], template=pref_template, template_format=pref_format
+        crpo_data[split] = convert_to_trl_pref_dataset(
+            crpo_data[split], template=pref_template, template_format=pref_format
         )
 
     for split in ["val", "test"]:
         for eval_sample_size in eval_sample_sizes:
-            cpo_data[f"{split}_sample{eval_sample_size}"] = sample_pref_dataset_by_task(
-                cpo_data[split],
+            crpo_data[f"{split}_sample{eval_sample_size}"] = sample_pref_dataset_by_task(
+                crpo_data[split],
                 sample_size=eval_sample_size,
                 sampling_method=eval_sampling_method,
             )
 
-    cpo_dataset = DatasetDict(cpo_data)
+    crpo_dataset = DatasetDict(crpo_data)
 
-    return cpo_dataset
+    return crpo_dataset
 
 
 def main():
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare CRPO data")
     parser.add_argument(
         "-i",
         "--input-dataset",
@@ -143,14 +143,21 @@ def main():
         default=[],
         help="Tasks to ignore",
     )
+    parser.add_argument(
+        "-c",
+        "--subset-name",
+        type=str,
+        default="default",
+        help="Name of the subset to create.",
+    )
 
     args = parser.parse_args()
 
     np.random.seed(args.seed)
 
-    input_dataset = load_dataset(args.input_dataset)
+    input_dataset = load_dataset(args.input_dataset, name=None if args.subset_name == "default" else args.subset_name)
 
-    cpo_dataset = prepare_cpo_data(
+    crpo_dataset = prepare_crpo_data(
         input_dataset,
         max_num_responses=args.max_num_responses,
         min_score_diff=args.min_score_diff,
@@ -169,8 +176,8 @@ def main():
         ignored_tasks=args.ignored_tasks,
     )
 
-    if cpo_dataset:
-        cpo_dataset.push_to_hub(args.output_dataset, private=True)
+    if crpo_dataset:
+        crpo_dataset.push_to_hub(args.output_dataset, private=True, config_name=args.subset_name)
         print(f"Pushed the dataset to {args.output_dataset}")
 
 

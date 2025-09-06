@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from tqdm import tqdm
 from datasets import load_dataset
 
-from utils import write_json, generate_unique_id
+from crpo.utils import write_json, generate_unique_id
 
 load_dotenv()
 
@@ -38,7 +38,7 @@ def prepare_lm_data(dataset, dataset_name, split):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare LM raw data")
     parser.add_argument(
         "-i", "--input-dataset", type=str, help="Path to input dataset", required=True
     )
@@ -49,16 +49,23 @@ def main():
         default=None,
         help="Output directory path. Defaults to input directory path.",
     )
+    parser.add_argument(
+        "-c",
+        "--subset-name",
+        type=str,
+        default="default",
+        help="Name of the subset to create.",
+    )
 
     args = parser.parse_args()
-    input_dataset = load_dataset(args.input_dataset)
+    input_dataset = load_dataset(args.input_dataset, name=None if args.subset_name == "default" else args.subset_name)
     splits = input_dataset.keys()
 
     for split in splits:
         dataset = input_dataset[split]
         dataset_name = args.input_dataset.split("/")[-1]
         lm_data = prepare_lm_data(dataset, dataset_name, split)
-        output_path = f"{dataset_name}_{split}_lm_data.json"
+        output_path = f"{dataset_name}_{args.subset_name}_{split}_lm_data.json"
         output_dir = (
             pathlib.Path(args.output_dir)
             if args.output_dir is not None
@@ -69,6 +76,7 @@ def main():
         output_data = {
             "metadata": {
                 "source": args.input_dataset,
+                "subset": args.subset_name,
                 "split": split,
                 "dataset_name": dataset_name,
                 "size": len(lm_data),

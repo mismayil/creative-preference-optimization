@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from utils import (
+from crpo.utils import (
     read_json,
     write_json,
     find_files,
@@ -17,7 +17,7 @@ from utils import (
     get_model_name,
     load_rm,
 )
-from metrics import compute_quality
+from crpo.metrics import compute_quality
 
 
 def compute_rm_metrics(results, config=None, reward_model=None, reward_tokenizer=None):

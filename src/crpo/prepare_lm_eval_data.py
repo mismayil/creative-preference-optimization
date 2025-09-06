@@ -2,7 +2,7 @@ import argparse
 import pathlib
 from tqdm import tqdm
 
-from utils import read_json, write_json, get_template_keys, find_files
+from crpo.utils import read_json, write_json, get_template_keys, find_files
 
 
 def make_short_response_template(sample):
@@ -209,7 +209,7 @@ def prepare_sample_for_eval(sample, template, num_shots=1, shot_data=None):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare LM evaluation data")
     parser.add_argument(
         "-d",
         "--datapath",

@@ -8,7 +8,7 @@ import pathlib
 
 load_dotenv()
 
-from utils import none_or_int, read_json, write_json, find_files
+from crpo.utils import none_or_int, read_json, write_json, find_files
 
 
 def aggregate_eval_data(

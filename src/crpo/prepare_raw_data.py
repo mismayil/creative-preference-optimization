@@ -5,7 +5,7 @@ import numpy as np
 load_dotenv()
 
 from datasets import DatasetDict, load_dataset, disable_caching
-from data import prepare_full_prompt
+from crpo.data import prepare_full_prompt
 
 
 def prepare_raw_data(input_dataset, modalities=None, languages=None, tasks=None):
@@ -81,15 +81,15 @@ def prepare_raw_data(input_dataset, modalities=None, languages=None, tasks=None)
         ("heldout_language", heldout_language_dataset),
     ]
 
-    cpo_data = {}
+    crpo_data = {}
 
     for split_name, split_dataset in splits:
         if len(split_dataset) > 0:
-            cpo_data[split_name] = split_dataset
+            crpo_data[split_name] = split_dataset
 
-    cpo_dataset = DatasetDict(cpo_data)
+    crpo_dataset = DatasetDict(crpo_data)
 
-    return cpo_dataset
+    return crpo_dataset
 
 
 def main():
@@ -97,7 +97,7 @@ def main():
     # to make sure the dataset is updated
     disable_caching()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare raw data for CRPO")
     parser.add_argument(
         "-i",
         "--input-dataset",
@@ -141,6 +141,13 @@ def main():
         action="store_true",
         help="If set, the dataset will not be pushed to the hub.",
     )
+    parser.add_argument(
+        "-c",
+        "--subset-name",
+        type=str,
+        default="default",
+        help="Name of the subset to create.",
+    )
 
     args = parser.parse_args()
 
@@ -148,21 +155,21 @@ def main():
 
     input_dataset = load_dataset(args.input_dataset)
 
-    cpo_dataset = prepare_raw_data(
+    crpo_dataset = prepare_raw_data(
         input_dataset,
         modalities=args.modalities,
         languages=args.languages,
         tasks=args.tasks,
     )
 
-    print(cpo_dataset)
+    print(crpo_dataset)
 
     if args.dry_run:
         print("Dry run mode. Not pushing the dataset to the hub.")
         return
 
-    if cpo_dataset:
-        cpo_dataset.push_to_hub(args.output_dataset, private=True)
+    if crpo_dataset:
+        crpo_dataset.push_to_hub(args.output_dataset, private=True, config_name=args.subset_name)
         print(f"Pushed the dataset to {args.output_dataset}")
 
 

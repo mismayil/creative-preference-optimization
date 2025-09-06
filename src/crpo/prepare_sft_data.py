@@ -5,17 +5,17 @@ import numpy as np
 load_dotenv()
 
 from datasets import DatasetDict, load_dataset
-from data import (
+from crpo.data import (
     get_data_dict,
     flatten_data,
     prepare_sft_data,
     convert_to_trl_sft_dataset,
 )
 
-from utils import none_or_int
+from crpo.utils import none_or_int
 
 
-def prepare_cpo_sft_data(
+def prepare_crpo_sft_data(
     input_dataset,
     dry_run=False,
     ignored_tasks=None,
@@ -54,7 +54,7 @@ def prepare_cpo_sft_data(
 def main():
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare SFT data for CRPO")
     parser.add_argument(
         "-i",
         "--input-dataset",
@@ -84,14 +84,21 @@ def main():
     parser.add_argument(
         "-st", "--sft-template", type=str, default="chat", help="Template for SFT"
     )
+    parser.add_argument(
+        "-c",
+        "--subset-name",
+        type=str,
+        default="default",
+        help="Name of the subset to create.",
+    )
 
     args = parser.parse_args()
 
     np.random.seed(args.seed)
 
-    input_dataset = load_dataset(args.input_dataset)
+    input_dataset = load_dataset(args.input_dataset, name=None if args.subset_name == "default" else args.subset_name)
 
-    sft_dataset = prepare_cpo_sft_data(
+    sft_dataset = prepare_crpo_sft_data(
         input_dataset,
         dry_run=args.dry_run,
         ignored_tasks=args.ignored_tasks,
@@ -101,7 +108,7 @@ def main():
     )
 
     if sft_dataset:
-        sft_dataset.push_to_hub(args.output_dataset, private=True)
+        sft_dataset.push_to_hub(args.output_dataset, private=True, config_name=args.subset_name)
         print(f"Pushed the dataset to {args.output_dataset}")
 
 

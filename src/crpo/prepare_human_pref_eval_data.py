@@ -9,7 +9,7 @@ from itertools import product
 
 load_dotenv()
 
-from utils import none_or_int, read_json, write_json, find_files
+from crpo.utils import none_or_int, read_json, write_json, find_files
 
 
 def prepare_human_pref_eval_data(input_paths, aggregate_responses=False):
@@ -94,7 +94,7 @@ def prepare_human_pref_eval_data(input_paths, aggregate_responses=False):
 def main():
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare human preference evaluation data")
     parser.add_argument(
         "-i",
         "--input-paths",

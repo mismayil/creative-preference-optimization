@@ -57,7 +57,7 @@ from mistralai import Mistral
 logging.basicConfig(stream=sys.stderr, level=logging.WARN)
 logger = logging.getLogger(__name__)
 
-from utils import (
+from crpo.utils import (
     read_json,
     write_json,
     generate_unique_id,

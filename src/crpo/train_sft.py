@@ -22,10 +22,12 @@ from trl import (
     get_quantization_config,
 )
 
-from utils import find_latest_checkpoint
+from crpo.utils import find_latest_checkpoint
 
 
 def main(script_args, training_args, model_args):
+    if True:
+        return 
     # Find the latest checkpoint if available
     checkpoint_dir = training_args.output_dir
     if training_args.resume_from_checkpoint:

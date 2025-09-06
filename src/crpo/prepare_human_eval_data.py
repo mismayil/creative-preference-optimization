@@ -8,7 +8,7 @@ import pathlib
 
 load_dotenv()
 
-from utils import none_or_int, read_json, write_json, find_files
+from crpo.utils import none_or_int, read_json, write_json, find_files
 
 
 def _get_metric_value(sample, metric):
@@ -195,7 +195,7 @@ def prepare_human_eval_data(
 def main():
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Prepare human evaluation data")
     parser.add_argument(
         "-i",
         "--input-paths",

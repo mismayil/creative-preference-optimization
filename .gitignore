@@ -164,4 +164,3 @@ cython_debug/
 .DS_Store
 logs
 wandb
-CPO/experiments/lm/figures

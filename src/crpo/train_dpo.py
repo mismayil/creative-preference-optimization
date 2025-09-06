@@ -29,8 +29,8 @@ from trl import (
 )
 from trl.trainer.utils import SIMPLE_CHAT_TEMPLATE, cap_exp, pad, empty_cache
 
-from utils import find_latest_checkpoint
-from cpo import compute_creativity_scores
+from crpo.utils import find_latest_checkpoint
+from crpo.crpo import compute_creativity_scores
 
 
 @dataclass
@@ -51,7 +51,7 @@ class CDPOConfig(DPOConfig):
         default=0.0,
         metadata={"help": "Coefficient for the quality injection."},
     )
-    cpo_strategy: str = field(
+    crpo_strategy: str = field(
         default="add",
         metadata={
             "help": "Strategy for combining creativity scores. Options: 'add' or 'mult'."
@@ -432,7 +432,7 @@ class CDPOTrainer(DPOTrainer):
             lambda_surprise=self.args.lambda_surprise,
             lambda_quality=self.args.lambda_quality,
             expected_shape=logits.shape,
-            strategy=self.args.cpo_strategy,
+            strategy=self.args.crpo_strategy,
         )
 
         # The beta is a temperature parameter for the DPO loss, typically something in the range of 0.1 to 0.5.

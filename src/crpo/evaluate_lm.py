@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from utils import (
+from crpo.utils import (
     read_json,
     write_json,
     find_files,
@@ -18,8 +18,8 @@ from utils import (
     prepare_metrics_for_wandb,
     detect_outliers_iqr,
 )
-from inference_lm import load_model
-from metrics import (
+from crpo.inference_lm import load_model
+from crpo.metrics import (
     compute_inverse_homogenization,
     compute_novelty,
     compute_theme_uniqueness,

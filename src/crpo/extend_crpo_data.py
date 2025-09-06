@@ -8,9 +8,9 @@ load_dotenv()
 
 from datasets import load_dataset, Dataset, DatasetDict
 
-from utils import read_json, load_lm, load_rm, make_lm_conv, none_or_int
-from data import get_prompt_and_responses_from_trl_sample
-from metrics import (
+from crpo.utils import read_json, load_lm, load_rm, make_lm_conv, none_or_int
+from crpo.data import get_prompt_and_responses_from_trl_sample
+from crpo.metrics import (
     DEF_EMB_MODEL,
     DEF_EMB_TYPE,
     DEF_DIST_FN,
@@ -23,7 +23,7 @@ from metrics import (
 )
 
 
-def extend_cpo_dataset_with_diversity(
+def extend_crpo_dataset_with_diversity(
     input_dataset,
     config=None,
 ):
@@ -94,7 +94,7 @@ def extend_cpo_dataset_with_diversity(
     return Dataset.from_generator(lambda: extended_data)
 
 
-def extend_cpo_dataset_with_novelty(
+def extend_crpo_dataset_with_novelty(
     input_dataset,
     config=None,
 ):
@@ -214,7 +214,7 @@ def extend_cpo_dataset_with_novelty(
     return Dataset.from_generator(lambda: extended_data)
 
 
-def extend_cpo_dataset_with_surprise(
+def extend_crpo_dataset_with_surprise(
     input_dataset,
     config=None,
 ):
@@ -288,7 +288,7 @@ def extend_cpo_dataset_with_surprise(
     return Dataset.from_generator(lambda: extended_data)
 
 
-def extend_cpo_dataset_with_quality(
+def extend_crpo_dataset_with_quality(
     input_dataset,
     config=None,
 ):
@@ -356,7 +356,7 @@ def extend_cpo_dataset_with_quality(
     return Dataset.from_generator(lambda: extended_data)
 
 
-def extend_cpo_dataset(
+def extend_crpo_dataset(
     input_dataset,
     metrics=None,
     config=None,
@@ -366,19 +366,19 @@ def extend_cpo_dataset(
 
     for metric in metrics:
         if metric == "diversity":
-            input_dataset = extend_cpo_dataset_with_diversity(
+            input_dataset = extend_crpo_dataset_with_diversity(
                 input_dataset, config=config
             )
         elif metric == "novelty":
-            input_dataset = extend_cpo_dataset_with_novelty(
+            input_dataset = extend_crpo_dataset_with_novelty(
                 input_dataset, config=config
             )
         elif metric == "surprise":
-            input_dataset = extend_cpo_dataset_with_surprise(
+            input_dataset = extend_crpo_dataset_with_surprise(
                 input_dataset, config=config
             )
         elif metric == "quality":
-            input_dataset = extend_cpo_dataset_with_quality(
+            input_dataset = extend_crpo_dataset_with_quality(
                 input_dataset, config=config
             )
         else:
@@ -387,7 +387,7 @@ def extend_cpo_dataset(
     return input_dataset
 
 
-def extend_cpo_data(
+def extend_crpo_data(
     input_dataset,
     metrics=None,
     config=None,
@@ -396,7 +396,7 @@ def extend_cpo_data(
     extended_dataset = {}
 
     for split in splits:
-        extended_dataset[split] = extend_cpo_dataset(
+        extended_dataset[split] = extend_crpo_dataset(
             input_dataset[split],
             metrics=metrics,
             config=config,
@@ -407,7 +407,7 @@ def extend_cpo_data(
 def main():
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Extend CRPO data with additional metrics")
     parser.add_argument(
         "-i",
         "--input-dataset",
@@ -521,14 +521,14 @@ def main():
 
     input_dataset = load_dataset(args.input_dataset)
 
-    cpo_dataset = extend_cpo_data(
+    crpo_dataset = extend_crpo_data(
         input_dataset,
         metrics=args.metrics,
         config=config,
     )
 
-    if cpo_dataset:
-        cpo_dataset.push_to_hub(args.output_dataset, private=True)
+    if crpo_dataset:
+        crpo_dataset.push_to_hub(args.output_dataset, private=True)
         print(f"Pushed the dataset to {args.output_dataset}")
 
 

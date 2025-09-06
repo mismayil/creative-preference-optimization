@@ -23,7 +23,7 @@ from sentence_transformers.util import (
 )
 from sklearn.cluster import AgglomerativeClustering
 
-from utils import cache, load_lm, load_rm
+from crpo.utils import cache, load_lm, load_rm
 
 DEF_EMB_MODEL = "jinaai/jina-embeddings-v3"
 DEF_EMB_TYPE = "sentence_embedding"

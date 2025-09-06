@@ -9,7 +9,7 @@ printf "Using config file: ${config_file}\n"
 printf "Using ${num_gpus} GPUs\n"
 
 if [ ${accelerate} == "True" ]; then
-    accelerate launch --num-processes $num_gpus --config_file ${accelerate_config_file} run_sft.py --config ${config_file}
+    accelerate launch --num-processes $num_gpus --config_file ${accelerate_config_file} -m crpo.train_sft --config ${config_file}
 else
-    python run_sft.py --config ${config_file}
+    python -m crpo.train_sft --config ${config_file}
 fi

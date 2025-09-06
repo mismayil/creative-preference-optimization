@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="Creative Preference Optimization - Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger Beaty">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="Novel preference optimization method and a multi-task multilingual creativity dataset promoting LLM output creativity">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="preference optimization, creativity, dataset, machine learning, AI, natural language processing">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger Beaty">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="EPFL NLP Lab">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="Creative Preference Optimization">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="Novel preference optimization method and a multi-task multilingual creativity dataset promoting LLM output creativity">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://mete.is/crpo">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://mete.is/static/images/crpo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Creative Preference Optimization - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Mete Ismayilzada">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="preference optimization">
+  <meta property="article:tag" content="creativity">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@mismayilsoy">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@mismayilsoy">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="Creative Preference Optimization">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="Novel preference optimization method and a multi-task multilingual creativity dataset promoting LLM output creativity">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://mete.is/static/images/crpo.png">
+  <meta name="twitter:image:alt" content="Creative Preference Optimization">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Creative Preference Optimization">
+  <meta name="citation_author" content="Ismayilzada, Mete">
+  <meta name="citation_author" content="Laverghetta Jr., Antonio">
+  <meta name="citation_author" content="Luchini, Simone A.">
+  <meta name="citation_author" content="Patel, Reet">
+  <meta name="citation_author" content="Bosselut, Antoine">
+  <meta name="citation_author" content="van der Plas, Lonneke">
+  <meta name="citation_author" content="Beaty, Roger">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="EMNLP 2025 (Findings)">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2505.14442">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>Creative Preference Optimization</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Creative Preference Optimization",
+    "description": "Novel preference optimization method and a multi-task multilingual creativity dataset promoting LLM output creativity",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Mete Ismayilzada",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "EPFL"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Antonio Laverghetta Jr.",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Wesleyan University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Simone A. Luchini",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Pennsylvania State University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Reet Patel",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Pennsylvania State University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Antoine Bosselut",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "EPFL"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Lonneke van der Plas",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Università della Svizzera Italiana"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Roger Beaty",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Pennsylvania State University"
+        }
+      }
+    ],
+    "datePublished": "2025-11-04",
+    "publisher": {
+      "@type": "Organization",
+      "name": "EMNLP 2025 (Findings)",
+    },
+    "url": "https://mete.is/crpo",
+    "image": "https://mete.is/static/images/crpo.png",
+    "keywords": ["preference optimization", "creativity", "dataset", "machine learning", "NLP"],
+    "abstract": "",
+    "citation": "",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://mete.is/crpo"
+    },
+    "about": []
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <!-- <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EPFL NLP Lab",
+    "url": "https://nlp.epfl.ch",
+    "logo": "https://mete.is/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/mismayilsoy",
+      "https://github.com/mismayil"
+    ]
+  }
+  </script> -->
+</head>
+<body>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Creative Preference Optimization</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                <a href="https://mete.is" target="_blank">Mete Ismayilzada</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://antonio-laverghetta-jr.owlstown.net/" target="_blank">Antonio Laverghetta Jr.</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.simoneluchini.com/" target="_blank">Simone A. Luchini</a>
+              </span>
+              <span class="author-block">
+                <a href="https://beatylab.la.psu.edu/people/" target="_blank">Reet Patel</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://atcbosselut.github.io/" target="_blank">Antoine Bosselut</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://sites.google.com/site/lonnekenlp/" target="_blank">Lonneke van der Plas</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://psych.la.psu.edu/people/rub736/" target="_blank">Roger Beaty</a>
+              </span>
+            </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+                    <span class="author-block">EPFL, Università della Svizzera Italiana, Wesleyan University, Pennsylvania State University<br>EMNLP 2025 (Findings)</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2505.14442" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" alt="Hugging Face Logo">
+                      </span>
+                      <span>Models & Data</span>
+                    </a>
+                  </span>
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="https://github.com/mismayil/creative-preference-optimization" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            While Large Language Models (LLMs) have demonstrated impressive performance across natural language generation tasks, their ability to generate truly creative content—characterized by novelty, diversity, surprise, and quality—remains limited. Existing methods for enhancing LLM creativity often focus narrowly on diversity or specific tasks, failing to address creativity’s multifaceted nature in a generalizable way. In this work, we propose Creative Preference Optimization (CrPO), a novel alignment method that injects signals from multiple creativity dimensions into the preference optimization objective in a modular fashion. We train and evaluate creativity-augmented versions of several models using CrPO and MuCE, a new large-scale human preference dataset spanning over 200,000 human-generated responses and ratings from more than 30 psychological creativity assessments. Our models outperform strong baselines, including GPT-4o, on both automated and human evaluations, producing more novel, diverse, and surprising generations while maintaining high output quality. Additional evaluations on NoveltyBench further confirm the generalizability of our approach. Together, our results demonstrate that directly optimizing for creativity within preference frameworks is a promising direction for advancing the creative capabilities of LLMs without compromising output quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/crpo.png" alt="Framework Figure" loading="lazy"/>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          Our preference alignment method CRPO to improve output creativity by injecting a weighted combination of signals from multiple creativity dimensions.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/crdpo_main_results.png" alt="Second research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Our method CrPO significantly enhances the creative output of LLMs while maintaining high output quality.
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{ismayilzada2025creativepreferenceoptimization,
+      title={Creative Preference Optimization}, 
+      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger Beaty},
+      year={2025},
+      eprint={2505.14442},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.14442}, 
+}}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

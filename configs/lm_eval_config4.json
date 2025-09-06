@@ -1,0 +1,15 @@
+{
+    "description": "LM evaluation config",
+    "emb_model": "jinaai/jina-embeddings-v3",
+    "emb_type": "sentence_embedding",
+    "emb_strategy": "direct",
+    "distance_fn": "cosine",
+    "lower": true,
+    "remove_punct": true,
+    "remove_stopwords": true,
+    "lemmatize": true,
+    "unique": true,
+    "cluster_linkage": "ward",
+    "cluster_dist_threshold": 0.7,
+    "remove_1word_outliers_only": true
+}

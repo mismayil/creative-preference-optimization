@@ -1,0 +1,18 @@
+{
+    "description": "LM evaluation config",
+    "emb_model": "jinaai/jina-embeddings-v3",
+    "reference_model": "google/gemma-3-1b-it",
+    "emb_type": "sentence_embedding",
+    "emb_strategy": "direct",
+    "distance_fn": "cosine",
+    "lower": true,
+    "remove_punct": true,
+    "remove_stopwords": false,
+    "lemmatize": false,
+    "unique": true,
+    "cluster_linkage": "ward",
+    "cluster_dist_threshold": 0.6,
+    "no_spacy": true,
+    "wandb": true,
+    "device": "auto"
+}

@@ -1,0 +1,15 @@
+{
+    "description": "CPO data extension config",
+    "metrics": ["novelty", "surprise", "diversity", "quality"],
+    "batch_size": 8,
+    "emb_model": "jinaai/jina-embeddings-v3",
+    "emb_type": "sentence_embedding",
+    "emb_strategy": "direct",
+    "distance_fn": "cosine",
+    "device": "cuda",
+    "lower": true,
+    "remove_punct": true,
+    "remove_stopwords": false,
+    "lemmatize": false,
+    "unique": true
+}

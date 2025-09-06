@@ -1,0 +1,31 @@
+# Model arguments
+model_name_or_path: meta-llama/Llama-3.1-8B-Instruct
+dataset_name: CNCL-Penn-State/cpo_en_multitask_text_fa_sft_ms30
+dataset_train_split: train
+dataset_test_split: val
+output_dir: /mnt/scratch/home/ismayilz/project-cpo/models/cpo-sft-llama-3.1-8b-instruct-fa-ms30
+
+# Training arguments
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 4
+num_train_epochs: 1
+gradient_checkpointing: true
+gradient_accumulation_steps: 4
+learning_rate: 3e-5
+lr_scheduler_type: cosine
+warmup_ratio: 0.5
+logging_steps: 8
+eval_strategy: steps
+eval_steps: 16
+save_strategy: steps
+save_steps: 256
+save_total_limit: 1
+max_length: 1024
+report_to: wandb
+run_name: cpo-sft-llama-3.1-8b-instruct-fa-ms30
+dataloader_num_workers: 4
+dataloader_prefetch_factor: 2
+torch_empty_cache_steps: 16
+seed: 42
+remove_unused_columns: false
+fp16: true

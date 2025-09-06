@@ -1,0 +1,38 @@
+# Model arguments
+model_name_or_path: google/gemma-3-12b-it
+dataset_name: CNCL-Penn-State/cpo_multiling_multitask_text_fa_sft_ms30
+dataset_train_split: train
+dataset_test_split: val
+output_dir: /home/aml7990/MUSE-models/cpo-sft-gemma-3-12b-it-lora-multiling_multitask_text_fa_sft_ms30
+
+# Training arguments
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 8
+num_train_epochs: 1
+gradient_checkpointing: true
+gradient_accumulation_steps: 4
+learning_rate: 3e-5
+lr_scheduler_type: cosine
+warmup_ratio: 0.5
+logging_steps: 16
+eval_strategy: steps
+eval_steps: 32
+save_strategy: steps
+save_steps: 512
+save_total_limit: 1
+max_length: 1024
+report_to: wandb
+run_name: cpo-sft-gemma-3-12b-it-lora-multiling_multitask_text_fa_sft_ms30
+dataloader_num_workers: 4
+dataloader_prefetch_factor: 2
+seed: 42
+fp16: true
+use_peft: true
+lora_r: 128
+lora_alpha: 256
+lora_target_modules:
+  - v_proj
+  - q_proj
+modules_to_save:
+  - lm_head
+  - embed_token

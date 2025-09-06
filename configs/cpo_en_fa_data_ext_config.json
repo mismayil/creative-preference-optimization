@@ -1,0 +1,13 @@
+{
+    "description": "CPO data extension config",
+    "input_dataset": "CNCL-Penn-State/cpo_en_multitask_text_fa_msd5_mm10",
+    "output_dataset": "CNCL-Penn-State/cpo_en_multitask_text_fa_msd5_mm10_div_nov_sur",
+    "metrics": ["diversity", "novelty", "surprise"],
+    "reference_model": "google/gemma-2-27b-it",
+    "batch_size": 8,
+    "emb_model": "jinaai/jina-embeddings-v3",
+    "emb_type": "sentence_embedding",
+    "emb_strategy": "direct",
+    "distance_fn": "cosine",
+    "device": "cuda"
+}

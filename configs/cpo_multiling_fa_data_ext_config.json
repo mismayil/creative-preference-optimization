@@ -1,0 +1,13 @@
+{
+    "description": "CPO data extension config",
+    "input_dataset": "CNCL-Penn-State/cpo_multiling_multitask_text_fa_msd5_mm10",
+    "output_dataset": "CNCL-Penn-State/cpo_multiling_multitask_text_fa_msd5_mm10_div_nov_sur",
+    "metrics": ["surprise", "diversity", "novelty"],
+    "reference_model": "CohereForAI/aya-expanse-32b",
+    "batch_size": 8,
+    "emb_model": "jinaai/jina-embeddings-v3",
+    "emb_type": "sentence_embedding",
+    "emb_strategy": "direct",
+    "distance_fn": "cosine",
+    "device": "cuda"
+}

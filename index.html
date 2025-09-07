@@ -334,8 +334,54 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Main Results</h2>
-        <h3 class="title is-5"> CrPO significantly enhances the creative output of LLMs while maintaining high output quality.
+        <h2 class="title is-3">How does it work?</h2>
+        <h3 class="subtitle is-5">We multiply the Direct Preference Optimization (DPO) loss with a weighted combination of creativity scores corresponding to well-established dimensions from creativity research—novelty, surprise, diversity, and quality—which are frequently identified as core components in both cognitive psychology and computational creativity literature.
+        </h3>
+        <img src="static/images/crpo-equation.png" class="desktop-resize-80" style="display: block; width:600px; margin-left: auto; margin-right: auto;">
+        <img src="static/images/dpo-loss.png" class="desktop-resize-80" style="display: block; width:600px; margin-left: auto; margin-right: auto;margin-top: 30px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">How do we compute creativity scores?</h2>
+        <h3 class="subtitle is-5">We employ creativity metrics that provide measurable signals aligning with key cognitive theories and enable practical optimization within language models.
+        </h3>
+        <h2 class="title is-4" style="margin-top: 20px;">Novelty</h2>
+        <h3 class="subtitle is-6">We use a novelty metric similar to Karampiperis et al. (2014) where the novelty of a preferred response is defined as the absolute difference between the average pairwise semantic distances of words in the given preferred response and those of the set of preferred responses.
+        </h3>
+        <img src="static/images/novelty-eq.png" class="desktop-resize-80" style="display: block; width:300px; margin-left: auto; margin-right: auto;">
+        <img src="static/images/dsi-eq.png" class="desktop-resize-80" style="display: block; width:400px; margin-left: auto; margin-right: auto;margin-top: 30px;">
+
+        <h2 class="title is-4" style="margin-top: 20px;">Diversity</h2>
+        <h3 class="subtitle is-6">We use an inverse homogenization metric from Chung et al. (2025) where we compute the diversity score of any particular preferred response as the average pairwise semantic distance to all the other preferred responses.
+        </h3>
+        <img src="static/images/diversity-eq.png" class="desktop-resize-80" style="display: block; width:400px; margin-left: auto; margin-right: auto;">
+
+        <h2 class="title is-4" style="margin-top: 20px;">Surprise</h2>
+        <h3 class="subtitle is-6">We use Shannon surprise - the negative log-likelihood of the preferred response under some model S — which has been widely used as a measure of surprise in prior work (Modirshanechi et al., 2022).
+        </h3>
+        <img src="static/images/surprise-eq.png" class="desktop-resize-80" style="display: block; width:200px; margin-left: auto; margin-right: auto;">
+
+        <h2 class="title is-4" style="margin-top: 20px;">Quality</h2>
+        <h3 class="subtitle is-6">We use reward models (R) to score the quality of preferred responses.
+        </h3>
+        <img src="static/images/quality-eq.png" class="desktop-resize-80" style="display: block; width:150px; margin-left: auto; margin-right: auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">How does CrPO perform?</h2>
+        <h3 class="subtitle is-5">We finetune small models (e.g. Llama-3.1-8B-Instruct) on a large-scale creativity preference dataset (MuCE) using CrPO and achieve significant improvements on LLM output creativity across all dimensions while maintaining high output quality.
         </h3>
         <img src="static/images/crdpo_main_results.png" class="desktop-resize-80"
           style="display: block; margin-left: auto; margin-right: auto;">
@@ -349,8 +395,10 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Multi-task Creativity Evaluation (MuCE)</h2>
-        <h3 class="title is-5">We introduce MuCE, a large-scale preference dataset consisting of more than 200,000 human responses and ratings for more than 30 creativity assessments.
+        <h3 class="subtitle is-5">To apply CrPO, we also collect a large-scale preference dataset consisting of more than 200,000 human responses and ratings for more than 30 creativity assessments and use a subset of it to train and evaluate our models. We release all our models and the data at <a href="https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df" target="_blank">Hugging Face</a>.
         </h3>
+        <!--add a small note that we only release the subset used for training and evaluation, full dataset release will come later-->
+        <p class="note" style="color: rgb(138, 1, 1);"><i>Note: We only release the subset used for training and evaluation for now, full dataset release will come in the following months.</i></p>
         <img src="static/images/muce.png" class="desktop-resize-80"
           style="display: block; margin-left: auto; margin-right: auto;">
       </div>

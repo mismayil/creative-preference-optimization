@@ -27,7 +27,7 @@
   <!-- TODO: Replace with your actual website URL -->
   <meta property="og:url" content="https://www.mete.is/creative-preference-optimization/">
   <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://mete.is/static/images/crpo.png">
+  <meta property="og:image" content="static/images/crpo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Creative Preference Optimization - Research Preview">
@@ -48,7 +48,7 @@
   <!-- TODO: Same as description above -->
   <meta name="twitter:description" content="Novel preference optimization method and a multi-task multilingual creativity dataset promoting LLM output creativity">
   <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://mete.is/static/images/crpo.png">
+  <meta name="twitter:image" content="static/images/crpo.png">
   <meta name="twitter:image:alt" content="Creative Preference Optimization">
 
   <!-- Academic/Research Specific -->
@@ -249,49 +249,65 @@
               </span>
             </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">EPFL, Università della Svizzera Italiana, Wesleyan University, Pennsylvania State University<br>EMNLP 2025 (Findings)</span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your institution and conference/journal info -->
+              <span class="author-block">EPFL, Università della Svizzera Italiana, Wesleyan University, Pennsylvania State University<br>EMNLP 2025 (Findings)</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2505.14442" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2505.14442" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
                     </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" alt="Hugging Face Logo">
-                      </span>
-                      <span>Models & Data</span>
+                <!-- TODO: Add your supplementary material PDF or remove this section -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" alt="Hugging Face Logo">
+                    </span>
+                    <span>Models & Data</span>
                     </a>
                   </span>
 
                   <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/mismayil/creative-preference-optimization" target="_blank"
+                <span class="link-block">
+                  <a href="https://github.com/mismayil/creative-preference-optimization" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                  <span>Code</span>
                   </a>
                 </span>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                <span><img src="static/images/logo-epfl.png" alt="EPFL logo" style="width: 200px;"></span>
+                <span><img src="static/images/usi-logo.png" alt="USI logo" style="width: 200px;"></span>
+                <span><img src="static/images/penn-state-logo.png" alt="Penn State logo" style="margin-right: 20px; width: 150px;"></span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" style="margin-top: -20px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/crpo.png">
+      <h2 class="subtitle has-text-centered">
+         CrPO injects a weighted combination of signals from multiple creativity dimensions into the DPO objective to optimize language models for creativity.
+      </h2>
     </div>
   </div>
 </section>
@@ -314,34 +330,19 @@
 </section>
 <!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/crpo.png" alt="Framework Figure" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          Our preference alignment method CRPO to improve output creativity by injecting a weighted combination of signals from multiple creativity dimensions.
-        </h2>
+<section class="section ">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Main Results</h2>
+        <h3 class="title is-4"> CrPO significantly enhances the creative output of LLMs while maintaining high output quality.
+        </h3>
+        <img src="static/images/crdpo_main_results.png" class="desktop-resize-80"
+          style="display: block; margin-left: auto; margin-right: auto;">
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/crdpo_main_results.png" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Our method CrPO significantly enhances the creative output of LLMs while maintaining high output quality.
-        </h2>
-      </div>
+    </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
-
-
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">

@@ -1,6 +1,10 @@
 # Creative Preference Optimization
 
-[Paper](https://arxiv.org/abs/2505.14442) | [Data & Models](https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df)
+![framework figure](./static/images/crpo.png)
+
+[![Paper](https://img.shields.io/badge/Paper-arXiv%20preprint-b31b1b.svg)](https://arxiv.org/abs/2505.14442)
+[![Project](https://img.shields.io/badge/Project%20Page-blue.svg)](https://mete.is/creative-preference-optimization)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
 This repo contains the code for the creative preference optimization (CrPO) framework.
 

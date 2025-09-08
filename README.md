@@ -22,7 +22,7 @@ pip install -e .
 ```
 @misc{ismayilzada2025creativepreferenceoptimization,
       title={Creative Preference Optimization}, 
-      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger Beaty},
+      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger E. Beaty},
       year={2025},
       eprint={2505.14442},
       archivePrefix={arXiv},

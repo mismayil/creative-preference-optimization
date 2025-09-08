@@ -6,13 +6,13 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="Creative Preference Optimization - Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger Beaty">
+  <meta name="title" content="Creative Preference Optimization - Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger E. Beaty">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
   <meta name="description" content="Novel preference optimization method and a multi-task creativity dataset promoting LLM output creativity">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
   <meta name="keywords" content="preference optimization, creativity, dataset, machine learning, AI, natural language processing">
   <!-- TODO: List all authors -->
-  <meta name="author" content="Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger Beaty">
+  <meta name="author" content="Mete Ismayilzada, Antonio Laverghetta Jr., Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger E. Beaty">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
@@ -172,7 +172,7 @@
       },
       {
         "@type": "Person",
-        "name": "Roger Beaty",
+        "name": "Roger E. Beaty",
         "affiliation": {
           "@type": "Organization",
           "name": "Pennsylvania State University"
@@ -245,7 +245,7 @@
                 <a href="https://sites.google.com/site/lonnekenlp/" target="_blank">Lonneke van der Plas</a>,
               </span>
               <span class="author-block">
-                <a href="https://psych.la.psu.edu/people/rub736/" target="_blank">Roger Beaty</a>
+                <a href="https://psych.la.psu.edu/people/rub736/" target="_blank">Roger E. Beaty</a>
               </span>
             </div>
 
@@ -322,7 +322,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            While Large Language Models (LLMs) have demonstrated impressive performance across natural language generation tasks, their ability to generate truly creative content—characterized by novelty, diversity, surprise, and quality—remains limited. Existing methods for enhancing LLM creativity often focus narrowly on diversity or specific tasks, failing to address creativity’s multifaceted nature in a generalizable way. In this work, we propose Creative Preference Optimization (CrPO), a novel alignment method that injects signals from multiple creativity dimensions into the preference optimization objective in a modular fashion. We train and evaluate creativity-augmented versions of several models using CrPO and MuCE, a new large-scale human preference dataset spanning over 200,000 human-generated responses and ratings from more than 30 psychological creativity assessments. Our models outperform strong baselines, including GPT-4o, on both automated and human evaluations, producing more novel, diverse, and surprising generations while maintaining high output quality. Additional evaluations on NoveltyBench further confirm the generalizability of our approach. Together, our results demonstrate that directly optimizing for creativity within preference frameworks is a promising direction for advancing the creative capabilities of LLMs without compromising output quality.
+            While Large Language Models (LLMs) have demonstrated impressive performance across natural language generation tasks, their ability to generate truly creative content—characterized by novelty, diversity, surprise, and quality—remains limited. Existing methods for enhancing LLM creativity often focus narrowly on diversity or specific tasks, failing to address creativity's multifaceted nature in a generalizable way. In this work, we propose Creative Preference Optimization (CrPO), a novel alignment method that injects signals from multiple creativity dimensions into the preference optimization objective in a modular fashion. We train and evaluate creativity-augmented versions of several models using CrPO and MuCE (Multi-task Creativity Evaluation), a new large-scale human preference dataset spanning over 200,000 human-generated responses and ratings from more than 30 psychological creativity assessments. Our models outperform strong baselines, including GPT-4o, on both automated and human evaluations, producing more novel, diverse, and surprising generations while maintaining high output quality. Additional evaluations on NoveltyBench further confirm the generalizability of our approach. Together, our results demonstrate that directly optimizing for creativity within preference frameworks is a promising direction for advancing the creative capabilities of LLMs without compromising output quality.
           </p>
         </div>
       </div>
@@ -369,7 +369,7 @@
         <img src="static/images/surprise-eq.png" class="desktop-resize-80" style="display: block; width:200px; margin-left: auto; margin-right: auto;">
 
         <h2 class="title is-4" style="margin-top: 20px;">Quality</h2>
-        <h3 class="subtitle is-6">We use reward models (R) to score the quality of preferred responses.
+        <h3 class="subtitle is-6">We use reward models (R) to score the quality of preferred responses (Lambert et al., 2024).
         </h3>
         <img src="static/images/quality-eq.png" class="desktop-resize-80" style="display: block; width:150px; margin-left: auto; margin-right: auto;">
       </div>
@@ -382,7 +382,7 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">How does CrPO perform?</h2>
-        <h3 class="subtitle is-5">We finetune small models (e.g. Llama-3.1-8B-Instruct) on a large-scale creativity preference dataset (MuCE) using CrPO and achieve significant improvements on LLM output creativity across all dimensions while maintaining high output quality.
+        <h3 class="subtitle is-5">We finetune small models (e.g. Llama-3.1-8B-Instruct) on a large-scale creativity preference dataset (MuCE) using CrPO and achieve significant improvements on LLM output creativity across all dimensions while maintaining high output quality. Particularly, CrPO models outperform strong baselines, such as GPT-4o, Gemini-2.0 and Claude-3.7.
         </h3>
         <img src="static/images/crdpo_main_results.png" class="desktop-resize-80"
           style="display: block; margin-left: auto; margin-right: auto;">
@@ -411,11 +411,81 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Example outputs</h2>
-        <h3 class="title is-5">Example model (and gold human) responses to the prompt “At a sleepover we ...” from the Sentence Completion task.
-        </h3>
-        <img src="static/images/examples.png" class="desktop-resize-80"
-          style="display: block; margin-left: auto; margin-right: auto;">
+        <h2 class="title is-3">Example generations</h2>
+        <h3 class="title is-5">Here are some sample model (and gold human) responses to the following prompt from the Metaphor task.</h3>
+        <h4><i>Come up with an original and creative metaphoric equivalent for the concept described below: <br/> Stomata are tiny openings or pores found on the underside of a plant leaf. They are used for gas exchange, enabling the intake of carbon dioxide and release of oxygen.</i></h4>
+        <table class="table" style="width: 100%; margin-top: 20px;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Human</th>
+              <td>window. Explanation: windows can open or close and allow airflow</td>
+            </tr>
+            <tr>
+              <th>Llama-3.1-8B-Instruct</th>
+              <td>Leaves have tiny lungs that breathe in and out.</td>
+            </tr>
+            <tr>
+              <th>Gemini-2.0-Flash</th>
+              <td>Leaf pores: Plant's lungs, breathing in food, exhaling life.</td>
+            </tr>
+            <tr>
+              <th>Claude-3.7-Sonnet</th>
+              <td>Leaf lungs: nature's microscopic doors breathing life's invisible currency.</td>
+            </tr>
+            <tr>
+              <th>GPT-4o</th>
+              <td>Stomata are the leaf's whispers, exchanging secrets with the air.</td>
+            </tr>
+            <tr>
+              <th>SFT</th>
+              <td>They are like lungs for the plant.</td>
+            </tr>
+            <tr>
+              <th>DPO</th>
+              <td>Are the lungs of a car the equivalent of stomata?</td>
+            </tr>
+            <tr>
+              <th>CrPO-nov</th>
+              <td>a tiny library with two entrances and exits, one for new books and one for old books that need to be returned to the shelf outside.</td>
+            </tr>
+            <tr>
+              <th>CrPO-nov-qua</th>
+              <td>Could be like the mouth of a submarine where water and air are exchanged.</td>
+            </tr>
+            <tr>
+              <th>CrPO-div</th>
+              <td>Crowd control machines at a concert that allow in fresh air and prevent panic from building up.</td>
+            </tr>
+            <tr>
+              <th>CrPO-div-qua</th>
+              <td>are like an internet cafe for molecules where CO2 uploads info and O2 downloads info.</td>
+            </tr>
+            <tr>
+              <th>CrPO-sur</th>
+              <td>like a urban sewer system that brings oxygen and removes CO2</td>
+            </tr>
+            <tr>
+              <th>CrPO-sur-qua</th>
+              <td>a plant's version of a town square, with people coming and going, exchanging goods and services, except instead of goods and services, it's oxygen and carbon dioxide..</td>
+            </tr>
+            <tr>
+              <th>CrPO-nov-div-sur</th>
+              <td>Ingesting yesterday's news through a very small balcony door and expelling today's gossip out onto the balcony.</td>
+            </tr>
+            <tr>
+              <th>CrPO-cre</th>
+              <td>like the mail box where one receives whatever is expected but where another receives what's no longer needed. one breaths in the letter while the other breaths out. essentially the box serves two purposes..</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <img src="static/images/examples.png" class="desktop-resize-80"
+          style="display: block; margin-left: auto; margin-right: auto;"> -->
       </div>
     </div>
   </div>
@@ -433,7 +503,7 @@
       </div>
       <pre id="bibtex-code"><code>@article{ismayilzada2025creativepreferenceoptimization,
       title={Creative Preference Optimization}, 
-      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger Beaty},
+      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger E. Beaty},
       year={2025},
       eprint={2505.14442},
       archivePrefix={arXiv},

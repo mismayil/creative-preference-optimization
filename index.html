@@ -353,7 +353,7 @@
         <h3 class="subtitle is-5">We employ creativity metrics that provide measurable signals aligning with key cognitive theories and enable practical optimization within language models.
         </h3>
         <h2 class="title is-4" style="margin-top: 20px;">Novelty</h2>
-        <h3 class="subtitle is-6">We use a novelty metric similar to Karampiperis et al. (2014) where the novelty of a preferred response is defined as the absolute difference between the average pairwise semantic distances of words in the given preferred response and those of the set of preferred responses.
+        <h3 class="subtitle is-6">We use a novelty metric similar to Karampiperis et al. (2014) where the novelty of a preferred response is defined as the absolute difference between the average pairwise semantic distances of words (a.k.a Divergent Semantic Integration or DSI from Johnson et al., 2022) in the given preferred response and those of the set of preferred responses.
         </h3>
         <img src="static/images/novelty-eq.png" class="desktop-resize-80" style="display: block; width:300px; margin-left: auto; margin-right: auto;">
         <img src="static/images/dsi-eq.png" class="desktop-resize-80" style="display: block; width:400px; margin-left: auto; margin-right: auto;margin-top: 30px;">
@@ -402,6 +402,35 @@
         <p class="note" style="color: rgb(138, 1, 1);"><i>Note: We only release the subset used for training and evaluation for now, full dataset release will come in the following months.</i></p>
         <img src="static/images/muce.png" class="desktop-resize-80"
           style="display: block; margin-left: auto; margin-right: auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Human and NoveltyBench Evaluations</h2>
+        <h3 class="subtitle is-5">Our models are also rated to be more creative than several baselines in human evaluations. Additionally, we evaluate our models on NoveltyBench (Zhang et al., 2025) and find that CrPO models outperform the baselines on both novelty and quality.
+        </h3>
+        <p class="note" style="color: rgb(138, 1, 1);"><i>Note: The novelty and quality metrics are computed as described in (Zhang et al., 2025)</i></p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="column">
+          <img src="static/images/crdpo_human_eval_cre_wta.png" class="desktop-resize-80"
+            style="display: block; margin-left: auto; margin-right: auto;">
+          <h3 style="margin-top: 10px; text-align: center;">Human Evaluation</h3>
+        </div>
+      </div>
+      <div class="column is-full-width">
+        <div class="column">
+          <img src="static/images/crdpo_nbench_results.png" class="desktop-resize-80"
+            style="display: block; margin-left: auto; margin-right: auto;">
+          <h3 style="margin-top: 15px; text-align: center;">NoveltyBench Evaluation</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -644,7 +673,7 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
+        <h2 class="title">Citation</h2>
         <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
           <i class="fas fa-copy"></i>
           <span class="copy-text">Copy</span>

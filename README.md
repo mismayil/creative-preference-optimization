@@ -6,7 +6,7 @@
 [![Project](https://img.shields.io/badge/Project%20Page-blue.svg)](https://mete.is/creative-preference-optimization)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
-This repo contains the code for the creative preference optimization (CrPO) framework.
+This repo contains the code for the creative preference optimization (CrPO) framework. Models & Data can be found in [HuggingFace](https://huggingface.co/collections/CNCL-Penn-State/crpo-67d0b11ff358430823dbb3df).
 
 ## Installation
 
@@ -16,7 +16,7 @@ pip install -e .
 ```
 
 ## Reproducibility
-`reproducibility-scripts` directory contains scripts to reproduce the SFT, DPO training and evaluation.
+`experiments` directory contains scripts to reproduce the SFT, DPO training and evaluation.
 
 ## Citation
 ```

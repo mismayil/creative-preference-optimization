@@ -1,6 +1,6 @@
 # Creative Preference Optimization
 
-![framework figure](./static/images/crpo.png)
+![framework figure](./docs/static/images/crpo.png)
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv%20preprint-b31b1b.svg)](https://arxiv.org/abs/2505.14442)
 [![Project](https://img.shields.io/badge/Project%20Page-blue.svg)](https://mete.is/creative-preference-optimization)

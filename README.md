@@ -2,7 +2,7 @@
 
 ![framework figure](./static/images/crpo.png)
 
-[![Paper](https://img.shields.io/badge/Paper-arXiv%20preprint-b31b1b.svg)](https://arxiv.org/abs/2505.14442)
+[![Paper](https://img.shields.io/badge/Paper-ACL%20anthology-b31b1b.svg)](https://aclanthology.org/2025.findings-emnlp.509/)
 [![Project](https://img.shields.io/badge/Project%20Page-blue.svg)](https://mete.is/creative-preference-optimization)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
@@ -20,13 +20,23 @@ pip install -e .
 
 ## Citation
 ```
-@misc{ismayilzada2025creativepreferenceoptimization,
-      title={Creative Preference Optimization}, 
-      author={Mete Ismayilzada and Antonio Laverghetta Jr. and Simone A. Luchini and Reet Patel and Antoine Bosselut and Lonneke van der Plas and Roger E. Beaty},
-      year={2025},
-      eprint={2505.14442},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2505.14442}, 
+@inproceedings{ismayilzada-etal-2025-creative,
+    title = "Creative Preference Optimization",
+    author = "Ismayilzada, Mete  and
+      Laverghetta Jr., Antonio  and
+      Luchini, Simone A.  and
+      Patel, Reet  and
+      Bosselut, Antoine  and
+      Plas, Lonneke Van Der  and
+      Beaty, Roger E.",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.509/",
+    doi = "10.18653/v1/2025.findings-emnlp.509",
+    pages = "9580--9609",
+    ISBN = "979-8-89176-335-7"
 }
 ```
